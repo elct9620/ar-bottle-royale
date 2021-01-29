@@ -1,5 +1,6 @@
 development:
-  adapter: async
+  adapter: redis
+  channel_prefix: ar_battle_royale_development
 
 test:
   adapter: test
