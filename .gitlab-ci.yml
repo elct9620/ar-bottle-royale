@@ -1,0 +1,105 @@
+default:
+  image: ruby:2.6.6
+
+stages:
+  - lint
+  - test
+  - deploy
+
+variables:
+  RAILS_ENV: test
+  NODE_VERSION: 12.13.1
+  BUNDLER_VERSION: 2.1.4
+  POSTGRES_DB: ar-battle-royale
+  POSTGRES_PASSWORD: postgres
+  DATABASE_URL: "postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/$POSTGRES_DB"
+
+.install_ruby_gems: &install_ruby_gems
+  - gem install bundler -v ${BUNDLER_VERSION}
+  - bundle install --path vendor
+
+.install_nodejs: &install_nodejs
+  - curl -SLO https://nodejs.org/dist/v$NODE_VERSION/node-v${NODE_VERSION}-linux-x64.tar.xz && tar -xJf node-v${NODE_VERSION}-linux-x64.tar.xz -C /usr/local --strip-components=1;
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
+
+.common:
+  before_script:
+    - export LANG=C.UTF-8
+    - export LC_ALL=C.UTF-8
+    - *install_ruby_gems
+  cache:
+    paths:
+      - vendor/ruby
+      - node_modules
+
+rubocop:
+  extends: .common
+  stage: lint
+  script:
+    - bundle exec rubocop
+  except:
+    - schedules
+
+brakeman:
+  extends: .common
+  stage: lint
+  script:
+    - bundle exec brakeman
+  except:
+    - schedules
+
+bundler-audit:
+  extends: .common
+  stage: lint
+  script:
+    - gem install bundler-audit
+    - bundle audit --update
+    - bundle audit
+  only:
+    changes:
+      - Gemfile
+      - Gemfile.lock
+  allow_failure: true
+
+bundler-leak:
+  extends: .common
+  stage: lint
+  script:
+    - gem install bundler-leak
+    - bundle leak check --update
+    - bundle leak
+  only:
+    changes:
+      - Gemfile
+      - Gemfile.lock
+  allow_failure: true
+
+yarn-audit:
+  extends: .common
+  stage: lint
+  before_script:
+    - *install_nodejs
+  script:
+    - yarn audit
+  only:
+    changes:
+      - package.json
+      - package-lock.json
+      - yarn.lock
+  allow_failure: true
+
+rspec:
+  extends: .common
+  stage: test
+  before_script:
+    - *install_nodejs
+    - *install_ruby_gems
+    - yarn install
+  services:
+    - postgres:12-alpine
+  script:
+    - bundle exec rake db:migrate
+    - bundle exec rspec
+  except:
+    - schedules
