@@ -20,13 +20,22 @@
 class Avatar < ApplicationRecord
   belongs_to :user
 
+  # Geocoder
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
 
+  # Validation
   validates :name, presence: true
+
+  # Callbacks
+  after_commit :refresh_nearby_avatars
 
   private
 
   # Avoid decode location to address
   def reverse_geocode; end
+
+  def refresh_nearby_avatars
+    NearbyPlayerRefreshService.new(self).perform
+  end
 end
