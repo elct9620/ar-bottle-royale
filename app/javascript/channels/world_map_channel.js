@@ -2,6 +2,12 @@ import consumer from "./consumer"
 
 consumer.subscriptions.create("WorldMapChannel", {
   connected() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.watchPosition(position => {
+        const { latitude, longitude } = position.coords
+        this.perform('update_position', { position: {latitude, longitude} })
+      })
+    }
     // Called when the subscription is ready for use on the server
   },
 
