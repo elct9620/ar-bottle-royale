@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.1.1)
+      concurrent-ruby (~> 1.0)
     actioncable (6.1.1)
       actionpack (= 6.1.1)
       activesupport (= 6.1.1)
@@ -355,6 +357,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   annotate
   bankai
   bootsnap (>= 1.1.0)
