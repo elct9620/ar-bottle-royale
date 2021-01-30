@@ -116,8 +116,6 @@ export default {
   top: 0;
   left: 0;
 
-  border: 5px solid green;
-
   pointer-events: none;
 }
 
@@ -132,5 +130,7 @@ export default {
   text-align: center;
 
   z-index: 999999999;
+
+  /* Move Out */
 }
 </style>

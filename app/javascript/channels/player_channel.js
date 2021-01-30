@@ -5,6 +5,8 @@ consumer.subscriptions.create("PlayerChannel", {
   connected() {
     this.avatar = null
     this.perform('load_avatar')
+
+    PlayerEvent.$on('battle:created', () => this.perform('join_battle'))
   },
 
   disconnected() {
@@ -12,13 +14,6 @@ consumer.subscriptions.create("PlayerChannel", {
   },
 
   received({ action, payload }) {
-    if (action === 'avatar:load') {
-      this.avatar = payload.avatar
-      return;
-    }
-
-    if (this.avatar && this.avatar.id !== payload.avatar.id) {
-      PlayerEvent.$emit(action, payload)
-    }
+    PlayerEvent.$emit(action, payload)
   }
 });

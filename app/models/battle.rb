@@ -21,7 +21,9 @@ class Battle < ApplicationRecord
   belongs_to :avatar1, class_name: 'Avatar'
   belongs_to :avatar2, class_name: 'Avatar'
 
-  after_create :notify_players
+  scope :incompleted, -> { where.not(state: %i[ended cancelled]) }
+
+  after_create :notify_created
 
   aasm column: :state do
     state :created, initial: true
@@ -30,7 +32,7 @@ class Battle < ApplicationRecord
     state :ended
     state :cancelled
 
-    event :join do
+    event :join, after_commit: :notify_started do
       transitions from: :created, to: :joined
       transitions from: :joined, to: :fighting
     end
@@ -40,14 +42,23 @@ class Battle < ApplicationRecord
     end
 
     event :cancel do
+      after { self.end_at = Time.zone.now }
+
       transitions from: %i[created joined], to: :cancelled
     end
   end
 
   private
 
-  def notify_players
+  def notify_created
     PlayerChannel.broadcast_to(avatar1.user, action: 'battle:created')
     PlayerChannel.broadcast_to(avatar2.user, action: 'battle:created')
+  end
+
+  def notify_started
+    return if fighting?
+
+    PlayerChannel.broadcast_to(avatar1.user, action: 'battle:started')
+    PlayerChannel.broadcast_to(avatar2.user, action: 'battle:started')
   end
 end

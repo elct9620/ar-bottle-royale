@@ -14,16 +14,28 @@ export default {
   },
   data() {
     return {
+      avatar: null,
       players: []
     }
   },
   mounted() {
-    PlayerEvent.$on('player:refresh', payload => {
-      if (this.players.find(player => player.id == payload.avatar.id) === undefined) {
-        this.players.unshift(payload.avatar)
+    PlayerEvent.$on('avatar:load', ({ avatar }) => this.avatar = avatar)
+    PlayerEvent.$on('player:refresh', ({ avatar }) => {
+      if (!this.avatar || !avatar) {
+        return;
       }
 
-      if (this.players.length >= 5) {
+      if (this.avatar.id === avatar.id) {
+        const idx = this.players.findIndex(p => p.id === this.avatar.id)
+        this.players.splice(idx, 1)
+        return;
+      }
+
+      if (this.players.find(player => player.id === avatar.id) === undefined) {
+        this.players.unshift(avatar)
+      }
+
+      if (this.players.length > 5) {
         this.players.pop()
       }
     })

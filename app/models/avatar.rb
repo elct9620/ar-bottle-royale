@@ -21,6 +21,7 @@ class Avatar < ApplicationRecord
   SCAN_RANGE = 1 # 1km
 
   belongs_to :user
+  has_many :battles, dependent: :destroy
 
   # Geocoder
   reverse_geocoded_by :latitude, :longitude
@@ -34,6 +35,14 @@ class Avatar < ApplicationRecord
 
   def attack(avatar_id)
     AttackPlayerService.new(self, avatar_id).perform
+  end
+
+  def current_battle
+    Battle
+      .where(avatar1: self)
+      .or(Battle.where(avatar2: self))
+      .incompleted
+      .first
   end
 
   private

@@ -1,6 +1,7 @@
 <%= render 'aframe/weapon' %>
 <%= render 'aframe/player' %>
 <a-scene
+  style="position: relative; z-index: 99"
   vr-mode-ui="enabled: false;"
   renderer="logarithmicDepthBuffer: true;"
   embedded
@@ -17,7 +18,7 @@
   <a-light type="ambient" color="#FFFFFF"></a-light>
 
   <!-- other player -->
-  <a-player wep="#wep001"></a-player>
+  <a-player visible="false" wep="#wep001"></a-player>
 
   <a-camera look-controls>
     <a-cursor
