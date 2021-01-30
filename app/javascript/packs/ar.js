@@ -11,13 +11,16 @@ Vue.config.ignoredElements = [
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
-    el: '#app',
     render: h => h(App)
   })
 
+  const $loading = document.getElementById('loading')
   const $app = document.getElementById('app')
 
-  if ($app) {
-    app.$mount($app)
-  }
+  cocoSsd.load().then(() => {
+    $loading.style.display = 'none'
+    if ($app) {
+      app.$mount($app)
+    }
+  })
 })

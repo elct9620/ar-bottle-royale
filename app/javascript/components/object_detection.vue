@@ -1,6 +1,5 @@
 <template>
   <div class="frame" :style="frameStyle">
-    <div class="loading" v-show="loading">LOADING</div>
     <detection-area v-for="item of confirmedPredictions" :prediction="item" :scaleX="scaleX" :scaleY="scaleY" />
   </div>
 </template>
@@ -15,7 +14,6 @@ export default {
   },
   data() {
     return {
-      loading: true,
       model: null,
       video: null,
       scaleX: 1,
@@ -35,7 +33,6 @@ export default {
     })
     this.getARJSVideo()
     this.model = await cocoSsd.load()
-    this.loading = false
     this.detectObject()
   },
   methods: {

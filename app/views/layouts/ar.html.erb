@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>AR Battle Royale</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui,viewport-fit=cover">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,10 +18,40 @@
     body {
       overflow: hidden;
     }
+
+    #loading {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      color: white;
+      background: black;
+
+      z-index: 999999999;
+    }
+
+    .loading-text {
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      text-transform: uppercase;
+
+      transform: translate(-50%, -50%);
+    }
     </style>
   </head>
 
   <body>
+    <div id="loading">
+      <div class="loading-text">
+        Loading
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
