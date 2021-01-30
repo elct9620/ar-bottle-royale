@@ -14,6 +14,7 @@ variables:
   POSTGRES_DB: the-final-hope
   POSTGRES_PASSWORD: postgres
   DATABASE_URL: "postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/$POSTGRES_DB"
+  DOCKER_REGISTRY: elct9620/ar-battle-royale
 
 .install_ruby_gems: &install_ruby_gems
   - gem install bundler -v ${BUNDLER_VERSION}
@@ -140,6 +141,7 @@ docker:nginx:
     - docker push $CI_REGISTRY_IMAGE/nginx:$CI_COMMIT_REF_SLUG
     - docker tag $CI_REGISTRY_IMAGE/nginx:$CI_COMMIT_REF_SLUG $CI_REGISTRY_IMAGE/nginx:$CI_COMMIT_SHORT_SHA
     - docker push $CI_REGISTRY_IMAGE/nginx:$CI_COMMIT_SHORT_SHA
+    - docker tag $CI_REGISTRY_IMAGE/nginx:$CI_COMMIT_REF_SLUG $DOCKER_REGISTRY:latest-nginx
     - |
       VERSION=$(
       curl --silent "https://api.github.com/repos/goodwithtech/dockle/releases/latest" | \
@@ -150,6 +152,9 @@ docker:nginx:
     - ./dockle --exit-code 1 $CI_REGISTRY_IMAGE/nginx:$CI_COMMIT_REF_SLUG
     - if [ "$CI_COMMIT_REF_SLUG" == "main" ]; then docker tag $CI_REGISTRY_IMAGE/nginx:$CI_COMMIT_REF_SLUG $CI_REGISTRY_IMAGE/nginx:latest; fi
     - if [ "$CI_COMMIT_REF_SLUG" == "main" ]; then docker push $CI_REGISTRY_IMAGE/nginx:latest; fi
+    - mkdir -p $HOME/.docker
+    - echo $DOCKER_AUTH_CONFIG > $HOME/.docker/config.json
+    - if [ "$CI_COMMIT_REF_SLUG" == "main" ]; then docker push $DOCKER_REGISTRY:latest-nginx; fi
   needs:
     - job: docker:assets
       artifacts: true
@@ -181,6 +186,7 @@ docker:rails:
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG $DOCKER_REGISTRY:latest
     - |
       VERSION=$(
       curl --silent "https://api.github.com/repos/goodwithtech/dockle/releases/latest" | \
@@ -191,6 +197,9 @@ docker:rails:
     - ./dockle --exit-code 1 $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
     - if [ "$CI_COMMIT_REF_SLUG" == "main" ]; then docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG $CI_REGISTRY_IMAGE:latest; fi
     - if [ "$CI_COMMIT_REF_SLUG" == "main" ]; then docker push $CI_REGISTRY_IMAGE:latest; fi
+    - mkdir -p $HOME/.docker
+    - echo $DOCKER_AUTH_CONFIG > $HOME/.docker/config.json
+    - if [ "$CI_COMMIT_REF_SLUG" == "main" ]; then docker push $DOCKER_REGISTRY:latest; fi
   needs:
     - job: docker:assets
       artifacts: true
