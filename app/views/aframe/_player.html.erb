@@ -1,0 +1,19 @@
+<script>
+  AFRAME.registerPrimitive('a-player', {
+    defaultComponents: {
+      'gltf-model': '#char001',
+      weapon: {
+        src: '#wep001'
+      },
+      position: {
+        x: 0,
+        y: -5,
+        z: -30
+      }
+    },
+    mappings: {
+      wep: 'weapon.src',
+      chara: 'gltf-model'
+    }
+  })
+</script>

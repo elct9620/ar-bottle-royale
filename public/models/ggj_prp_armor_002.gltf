@@ -1,0 +1,330 @@
+{
+    "asset": {
+        "copyright": "(C)2021 jimmy",
+        "generator": "maya2glTF v1.2.1 03f669e0d38e",
+        "version": "2.0"
+    },
+    "scenes": [
+        {
+            "nodes": [
+                1,
+                0
+            ]
+        }
+    ],
+    "scene": 0,
+    "nodes": [
+        {
+            "name": "joint1"
+        },
+        {
+            "name": "ggj_prp_armor_02",
+            "children": [
+                2
+            ],
+            "rotation": [
+                0.0,
+                0.7684941291809082,
+                0.0,
+                -0.6398568153381348
+            ]
+        },
+        {
+            "name": "ggj_prp_armor_02:PIV",
+            "mesh": 0,
+            "translation": [
+                0.0,
+                0.0,
+                -5.0
+            ],
+            "skin": 0
+        }
+    ],
+    "meshes": [
+        {
+            "name": "ggj_prp_armor_02Shape",
+            "extras": {
+                "targetNames": []
+            },
+            "primitives": [
+                {
+                    "attributes": {
+                        "JOINTS_0": 1,
+                        "NORMAL": 2,
+                        "POSITION": 3,
+                        "TANGENT": 4,
+                        "TEXCOORD_0": 5,
+                        "WEIGHTS_0": 6
+                    },
+                    "indices": 0,
+                    "mode": 4,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "skins": [
+        {
+            "name": "ggj_prp_armor_02Shape",
+            "inverseBindMatrices": 7,
+            "joints": [
+                0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "armor_02",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1.0
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 0.0,
+                "roughnessFactor": 1.0
+            }
+        }
+    ],
+    "textures": [
+        {
+            "sampler": 0,
+            "source": 0
+        }
+    ],
+    "images": [
+        {
+            "uri": "lambert1_Base_Color.png"
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "wrapS": 10497,
+            "wrapT": 10497
+        }
+    ],
+    "accessors": [
+        {
+            "name": "ggj_prp_armor_02Shape#0/indices",
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 1032,
+            "max": [
+                325
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "name": "ggj_prp_armor_02Shape#0/vertices/JOINTS_0",
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 326,
+            "max": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "min": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "ggj_prp_armor_02Shape#0/vertices/NORMAL",
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 326,
+            "max": [
+                0.9903094172477722,
+                1.0,
+                0.991418182849884
+            ],
+            "min": [
+                -0.9903093576431274,
+                -1.0,
+                -0.991418182849884
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "ggj_prp_armor_02Shape#0/vertices/POSITION",
+            "bufferView": 2,
+            "byteOffset": 3912,
+            "componentType": 5126,
+            "count": 326,
+            "max": [
+                1.1513522863388062,
+                2.476202964782715,
+                6.095001697540283
+            ],
+            "min": [
+                -1.1513524055480958,
+                0.0,
+                3.904998779296875
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "ggj_prp_armor_02Shape#0/vertices/TANGENT",
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 326,
+            "max": [
+                0.9962734580039978,
+                0.9999895095825196,
+                0.9422877430915833,
+                1.0
+            ],
+            "min": [
+                -0.9916033744812012,
+                -0.9769366979599,
+                -0.9421862363815308,
+                1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "ggj_prp_armor_02Shape#0/vertices/TEXCOORD_0",
+            "bufferView": 1,
+            "byteOffset": 2608,
+            "componentType": 5126,
+            "count": 326,
+            "max": [
+                0.9641916751861572,
+                0.9900638461112976
+            ],
+            "min": [
+                0.008862133137881756,
+                0.05180859565734863
+            ],
+            "type": "VEC2"
+        },
+        {
+            "name": "ggj_prp_armor_02Shape#0/vertices/WEIGHTS_0",
+            "bufferView": 3,
+            "byteOffset": 5216,
+            "componentType": 5126,
+            "count": 326,
+            "max": [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "min": [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "ggj_prp_armor_02Shape/skin/IBM",
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1,
+            "max": [
+                -0.18116652965545658,
+                0.0,
+                0.9834524393081664,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                -0.9834524393081664,
+                0.0,
+                -0.18116652965545658,
+                0.0,
+                4.917262077331543,
+                0.0,
+                0.9058326482772828,
+                1.0
+            ],
+            "min": [
+                -0.18116652965545658,
+                0.0,
+                0.9834524393081664,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                -0.9834524393081664,
+                0.0,
+                -0.18116652965545658,
+                0.0,
+                4.917262077331543,
+                0.0,
+                0.9058326482772828,
+                1.0
+            ],
+            "type": "MAT4"
+        }
+    ],
+    "bufferViews": [
+        {
+            "name": "ggj_prp_armor_002/data/indices-2",
+            "buffer": 0,
+            "byteOffset": 23536,
+            "byteLength": 2064,
+            "target": 34963
+        },
+        {
+            "name": "ggj_prp_armor_002/data/vertices-8",
+            "buffer": 0,
+            "byteOffset": 18320,
+            "byteLength": 5216,
+            "byteStride": 8,
+            "target": 34962
+        },
+        {
+            "name": "ggj_prp_armor_002/data/vertices-12",
+            "buffer": 0,
+            "byteOffset": 10496,
+            "byteLength": 7824,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "name": "ggj_prp_armor_002/data/vertices-16",
+            "buffer": 0,
+            "byteOffset": 64,
+            "byteLength": 10432,
+            "byteStride": 16,
+            "target": 34962
+        },
+        {
+            "name": "ggj_prp_armor_002/data/generic-64",
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 64
+        }
+    ],
+    "buffers": [
+        {
+            "name": "ggj_prp_armor_002/data",
+            "byteLength": 25600,
+            "uri": "ggj_prp_armor_0020.bin"
+        }
+    ]
+}

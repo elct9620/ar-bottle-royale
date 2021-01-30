@@ -1,0 +1,223 @@
+{
+    "asset": {
+        "copyright": "(C)2021 jimmy",
+        "generator": "maya2glTF v1.2.1 03f669e0d38e",
+        "version": "2.0"
+    },
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0,
+    "nodes": [
+        {
+            "name": "ggj_prp_source_003",
+            "children": [
+                1
+            ],
+            "translation": [
+                -0.5655093193054199,
+                0.9159650802612304,
+                1.4429396390914918
+            ]
+        },
+        {
+            "name": "ggj_prp_source_003:PIV",
+            "mesh": 0,
+            "translation": [
+                0.5655093193054199,
+                -0.9159650802612304,
+                -1.4429396390914918
+            ]
+        }
+    ],
+    "meshes": [
+        {
+            "name": "ggj_prp_source_003Shape",
+            "extras": {
+                "targetNames": []
+            },
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 1,
+                        "POSITION": 2,
+                        "TANGENT": 3,
+                        "TEXCOORD_0": 4
+                    },
+                    "indices": 0,
+                    "mode": 4,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "source_003",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1.0
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 0.0,
+                "roughnessFactor": 1.0
+            }
+        }
+    ],
+    "textures": [
+        {
+            "sampler": 0,
+            "source": 0
+        }
+    ],
+    "images": [
+        {
+            "uri": "ggj_prp_source_003_source_003_BaseColor.png"
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "wrapS": 10497,
+            "wrapT": 10497
+        }
+    ],
+    "accessors": [
+        {
+            "name": "ggj_prp_source_003Shape#0/indices",
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 216,
+            "max": [
+                164
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "name": "ggj_prp_source_003Shape#0/vertices/NORMAL",
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 165,
+            "max": [
+                0.8773379921913147,
+                0.9988310933113098,
+                0.9719690084457398
+            ],
+            "min": [
+                -0.938239336013794,
+                -0.9997965693473816,
+                -0.9535881280899048
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "ggj_prp_source_003Shape#0/vertices/POSITION",
+            "bufferView": 1,
+            "byteOffset": 1980,
+            "componentType": 5126,
+            "count": 165,
+            "max": [
+                1.7322580814361573,
+                2.4087729454040529,
+                3.881081104278565
+            ],
+            "min": [
+                -2.2307825088500978,
+                -0.02128267288208008,
+                -1.3207213878631592
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "ggj_prp_source_003Shape#0/vertices/TANGENT",
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 165,
+            "max": [
+                1.0,
+                0.685930609703064,
+                0.6462836861610413,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -0.6859306693077087,
+                -0.6462827920913696,
+                1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "ggj_prp_source_003Shape#0/vertices/TEXCOORD_0",
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 165,
+            "max": [
+                0.65625,
+                0.9790664911270142
+            ],
+            "min": [
+                0.34375,
+                0.02093350887298584
+            ],
+            "type": "VEC2"
+        }
+    ],
+    "bufferViews": [
+        {
+            "name": "ggj_prp_source_003/data/indices-2",
+            "buffer": 0,
+            "byteOffset": 7920,
+            "byteLength": 432,
+            "target": 34963
+        },
+        {
+            "name": "ggj_prp_source_003/data/vertices-12",
+            "buffer": 0,
+            "byteOffset": 2640,
+            "byteLength": 3960,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "name": "ggj_prp_source_003/data/vertices-16",
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 2640,
+            "byteStride": 16,
+            "target": 34962
+        },
+        {
+            "name": "ggj_prp_source_003/data/vertices-8",
+            "buffer": 0,
+            "byteOffset": 6600,
+            "byteLength": 1320,
+            "byteStride": 8,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "name": "ggj_prp_source_003/data",
+            "byteLength": 8352,
+            "uri": "ggj_prp_source_0030.bin"
+        }
+    ]
+}

@@ -1,11 +1,30 @@
+<%= render 'aframe/weapon' %>
+<%= render 'aframe/player' %>
 <a-scene
   vr-mode-ui="enabled: false;"
   renderer="logarithmicDepthBuffer: true;"
   embedded
   arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+  loading-screen
   >
-  <a-entity gltf-model="/models/ggj_prp_wep_001.gltf" position="0 -5 -30"></a-entity>
 
+  <a-assets>
+    <a-asset-item id="wep001" src="/models/ggj_prp_wep_001.gltf"></a-asset-item>
+    <a-asset-item id="wep002" src="/models/ggj_prp_wep_002.gltf"></a-asset-item>
+    <a-asset-item id="char001" src="/models/ggj_prp_char_001.gltf"></a-asset-item>
+  </a-assets>
+
+  <a-light type="ambient" color="#FFFFFF"></a-light>
+
+  <!-- other player -->
+  <a-player wep="#wep001"></a-player>
+
+  <a-camera look-controls>
+    <a-cursor
+      material="color: white; shader: flat"
+      >
+    </a-cursor>
+  </a-camera>
 </a-scene>
 
 <div id="app"></div>
