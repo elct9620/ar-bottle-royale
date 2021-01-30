@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import PlayerEvent from 'events/player'
+
 export default {
   data() {
     return {
@@ -19,7 +21,8 @@ export default {
     onClick(ev) {
       ev.preventDefault();
 
-      alert('TODO!')
+      PlayerEvent.$emit('attack:player', this.id)
+      alert(`Attack ${this.displayName}!!`)
     }
   },
   computed: {

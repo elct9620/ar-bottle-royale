@@ -9,6 +9,10 @@ class WorldMapChannel < ApplicationCable::Channel
     current_user.avatar.update(data['position'])
   end
 
+  def attack(data)
+    current_user.avatar.attack(data['avatar_id'])
+  end
+
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end

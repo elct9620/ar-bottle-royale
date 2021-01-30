@@ -19,7 +19,7 @@ class NearbyPlayerRefreshService
     # Nearby 1km
     Avatar
       .includes(:user)
-      .near(avatar.slice(:latitude, :longitude).values, 1)
+      .near(avatar.slice(:latitude, :longitude).values, Avatar::SCAN_RANGE)
       .map(&:user)
   end
 end

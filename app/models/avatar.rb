@@ -18,6 +18,8 @@
 #  location                  (latitude,longitude)
 #
 class Avatar < ApplicationRecord
+  SCAN_RANGE = 1 # 1km
+
   belongs_to :user
 
   # Geocoder
@@ -29,6 +31,10 @@ class Avatar < ApplicationRecord
 
   # Callbacks
   after_commit :refresh_nearby_avatars
+
+  def attack(avatar_id)
+    AttackPlayerService.new(self, avatar_id).perform
+  end
 
   private
 

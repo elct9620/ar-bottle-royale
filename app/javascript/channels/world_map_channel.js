@@ -1,4 +1,5 @@
 import consumer from "./consumer"
+import PlayerEvent from 'events/player'
 
 consumer.subscriptions.create("WorldMapChannel", {
   connected() {
@@ -8,7 +9,8 @@ consumer.subscriptions.create("WorldMapChannel", {
         this.perform('update_position', { position: {latitude, longitude} })
       })
     }
-    // Called when the subscription is ready for use on the server
+
+    PlayerEvent.$on('attack:player', avatar_id => this.perform('attack', { avatar_id }))
   },
 
   disconnected() {
