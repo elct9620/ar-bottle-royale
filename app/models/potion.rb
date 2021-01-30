@@ -20,7 +20,8 @@
 class Potion < Item
   def apply(avatar)
     avatar.with_lock do
-      avatar.increment(:hp, value).save
+      avatar.hp = [avatar.hp + value, avatar.max_hp].min
+      avatar.save
     end
   end
 end
