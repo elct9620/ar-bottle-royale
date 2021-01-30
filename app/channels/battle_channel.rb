@@ -6,7 +6,7 @@ class BattleChannel < ApplicationCable::Channel
   end
 
   def attack
-    # TODO
+    BattleAttackService.new(current_user.avatar).perform
   end
 
   def unsubscribed
