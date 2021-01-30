@@ -2,11 +2,15 @@
 <html>
   <head>
     <title>AR Battle Royale</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui,viewport-fit=cover">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
 
     <%= stylesheet_pack_tag 'ar', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'ar', 'data-turbolinks-track': 'reload' %>
