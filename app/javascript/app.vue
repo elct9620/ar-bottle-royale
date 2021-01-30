@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <notice />
     <nearby-player :avatar="avatar" v-if="searchMode" />
     <object-detection />
     <player-menu :mode="mode" />
@@ -15,13 +16,15 @@ import NearbyPlayer from 'components/nearby_player'
 import ObjectDetection from 'components/object_detection'
 import Menu from 'components/menu'
 import ItemMenu from 'components/item_menu'
+import Notice from 'components/notice'
 
 export default {
   components: {
     'nearby-player': NearbyPlayer,
     'object-detection': ObjectDetection,
     'player-menu': Menu,
-    'item-menu': ItemMenu
+    'item-menu': ItemMenu,
+    'notice': Notice
   },
   data: function () {
     return {

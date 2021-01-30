@@ -11,7 +11,7 @@ class AttackPlayerService
   def perform
     return resume_battle if player.current_battle.present?
     return false if foe.blank?
-    return false if foe.current_battle.present?
+    return player_in_combat if foe.current_battle.present?
 
     Battle.create(
       avatar1: player,
@@ -21,6 +21,10 @@ class AttackPlayerService
 
   def resume_battle
     player.current_battle.resume
+  end
+
+  def player_in_combat
+    PlayerChannel.broadcast_to(player.user, action: 'player:in_combat')
   end
 
   def foe
