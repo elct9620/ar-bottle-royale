@@ -1,0 +1,81 @@
+id,category,item_id,weight
+1,person,7,50
+2,bicycle,5,75
+3,car,7,75
+4,motorcycle,6,90
+5,airplane,5,80
+6,bus,5,85
+7,train,5,80
+8,truck,6,85
+9,boat,5,90
+10,traffic light,7,90
+11,fire hydrant,6,80
+12,stop sign,5,75
+13,parking meter,6,85
+14,bench,7,75
+15,bird,5,80
+16,cat,5,75
+17,dog,5,75
+18,horse,6,95
+19,sheep,7,75
+20,cow,7,95
+21,elephant,6,75
+22,bear,7,90
+23,zebra,6,90
+24,giraffe,7,85
+25,backpack,5,75
+26,umbrella,5,95
+27,handbag,6,85
+28,tie,5,75
+29,suitcase,6,95
+30,frisbee,5,75
+31,skis,7,75
+32,snowboard,5,80
+33,sports ball,5,75
+34,kite,6,75
+35,baseball bat,7,95
+36,baseball glove,6,95
+37,skateboard,5,80
+38,surfboard,7,95
+39,tennis racket,7,75
+40,bottle,6,85
+41,wine glass,5,75
+42,cup,5,95
+43,fork,6,90
+44,knife,5,85
+45,spoon,7,75
+46,bowl,6,85
+47,banana,6,90
+48,apple,7,85
+49,sandwich,5,90
+50,orange,6,75
+51,broccoli,6,75
+52,carrot,7,75
+53,hot dog,6,75
+54,pizza,7,75
+55,donut,6,80
+56,cake,6,80
+57,chair,6,95
+58,couch,7,70
+59,potted plant,6,75
+60,bed,5,90
+61,dining table,6,75
+62,toilet,6,75
+63,tv,7,85
+64,laptop,7,75
+65,mouse,6,80
+66,remote,6,85
+67,keyboard,7,75
+68,cell phone,7,60
+69,microwave,5,75
+70,oven,7,75
+71,toaster,5,90
+72,sink,7,75
+73,refrigerator,6,75
+74,book,7,85
+75,clock,7,95
+76,vase,5,80
+77,scissors,5,80
+78,teddy bear,5,90
+79,hair drier,7,95
+80,toothbrush,5,75

@@ -1,0 +1,11 @@
+id,name,type,value,asset_name,icon_name
+1,ggj_prp_armor_001,Armor,1,ggj_prp_armor_001,Armor_T1
+2,ggj_prp_armor_002,Armor,7,ggj_prp_armor_002,Armor_T2
+3,ggj_prp_armor_003,Armor,15,ggj_prp_armor_003,Armor_T3
+4,ggj_prp_med_001,Potion,30,ggj_prp_char_001,med
+5,ggj_prp_source_001,Source,1,ggj_prp_source_001,Source_T1
+6,ggj_prp_source_002,Source,1,ggj_prp_source_002,Source_T2
+7,ggj_prp_source_003,Source,1,ggj_prp_source_002,Source_T3
+8,ggj_prp_wep_001,Weapon,1,ggj_prp_wep_001,weapon_T1
+9,ggj_prp_wep_002,Weapon,10,ggj_prp_wep_002,weapon_T2
+10,ggj_prp_wep_003,Weapon,30,ggj_prp_wep_003,weapon_T3
