@@ -67,6 +67,15 @@ class Battle < ApplicationRecord
     notify_started
   end
 
+  def refresh_player
+    PlayerChannel.broadcast_to(avatar1.user,
+                               action: 'player:refresh',
+                               payload: { avatar: avatar1, id: avatar1.id })
+    PlayerChannel.broadcast_to(avatar2.user,
+                               action: 'player:refresh',
+                               payload: { avatar: avatar2, id: avatar2.id })
+  end
+
   private
 
   def notify_created

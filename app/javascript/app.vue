@@ -3,7 +3,7 @@
     <notice />
     <nearby-player :avatar="avatar" v-if="searchMode" />
     <object-detection />
-    <player-menu :mode="mode" />
+    <player-menu :mode="mode" :avatar="avatar" />
     <item-menu />
   </div>
 </template>

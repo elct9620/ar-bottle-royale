@@ -1,17 +1,21 @@
 <template>
-  <div class="menu">
-    <a @click="scan" v-if="searchMode">
-      <img :src="scanIconSrc" />
-    </a>
-    <a @click="attack" v-if="battleMode">
-      <img :src="hitIconSrc" />
-    </a>
+  <div class="status">
+    <div>{{ currentHp }} / {{ maxHp }}</div>
+    <div class="menu">
+      <a @click="scan" v-if="searchMode">
+        <img :src="scanIconSrc" />
+      </a>
+      <a @click="attack" v-if="battleMode">
+        <img :src="hitIconSrc" />
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
 import MapEvent from 'events/map'
 import BattleEvent from 'events/battle'
+import PlayerEvent from 'events/player'
 
 import ScanIcon from 'assets/scan.png'
 import HitIcon from 'assets/hit.png'
@@ -19,6 +23,7 @@ import HitIcon from 'assets/hit.png'
 export default {
   data() {
     return {
+      currentAvatarState: null,
       scanIconSrc: ScanIcon,
       hitIconSrc: HitIcon
     }
@@ -27,7 +32,18 @@ export default {
     mode: {
       type: String,
       default: 'search'
+    },
+    avatar: {
+      type: Object,
+      default: null
     }
+  },
+  mounted() {
+    PlayerEvent.$on('player:refresh', ({ avatar }) => {
+      if (this.avatar.id === avatar.id) {
+        this.currentAvatarState = avatar
+      }
+    })
   },
   methods: {
     scan(ev) {
@@ -47,13 +63,27 @@ export default {
     },
     battleMode() {
       return this.mode == 'battle'
+    },
+    currentHp() {
+      if (!this.currentAvatarState) {
+        return '???'
+      }
+
+      return this.currentAvatarState.hp
+    },
+    maxHp() {
+      if (!this.currentAvatarState) {
+        return '???'
+      }
+
+      return this.currentAvatarState.max_hp
     }
   }
 }
 </script>
 
 <style scoped>
-.menu {
+.status {
   position: fixed;
   left: 0;
   bottom: 64px;
@@ -61,6 +91,7 @@ export default {
   width: 100vw;
   height: 64px;
 
+  color: white;
   text-align: center;
 
   z-index: 999999;

@@ -22,6 +22,7 @@ class Action < ApplicationRecord
   before_save :apply_effect
   after_save :check_battle
   after_commit :notify_damage
+  after_commit -> { battle.refresh_player }
 
   private
 
