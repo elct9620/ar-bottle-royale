@@ -4,6 +4,7 @@ import PlayerEvent from 'events/player'
 consumer.subscriptions.create("PlayerChannel", {
   connected() {
     this.perform('load_avatar')
+    this.perform('load_inventories')
   },
 
   disconnected() {
