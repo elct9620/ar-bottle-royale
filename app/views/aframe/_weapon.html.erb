@@ -20,7 +20,10 @@
       var el = this.el;
       var src = this.data.src;
 
-      if (!src) { return; }
+      if (!src) {
+        this.remove()
+        return;
+      }
 
       this.remove();
 
