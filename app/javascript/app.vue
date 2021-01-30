@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nearby-player v-if="searchMode" />
+    <nearby-player :avatar="avatar" v-if="searchMode" />
     <!-- <object-detection /> -->
     <player-menu :mode="mode" />
     <item-menu />
@@ -25,11 +25,14 @@ export default {
   },
   data: function () {
     return {
+      avatar: null,
       mode: 'search',
       foePlayer: null,
     }
   },
   mounted() {
+    PlayerEvent.$on('avatar:load', ({ avatar }) => this.avatar = avatar)
+
     BattleEvent.$on('battle:started', () => {
       this.mode = 'battle'
       this.foePlayer.setAttribute('visible', true)

@@ -38,9 +38,12 @@ class Battle < ApplicationRecord
     event :join, after_commit: :notify_started do
       transitions from: :created, to: :joined
       transitions from: :joined, to: :fighting
+      transitions from: :fighting, to: :fighting
     end
 
     event :finish, after_commit: :notify_ended do
+      after { self.end_at = Time.zone.now }
+
       transitions from: :fighting, to: :ended
     end
 
@@ -58,6 +61,12 @@ class Battle < ApplicationRecord
     nil
   end
 
+  def resume
+    return notify_created if created? || joined?
+
+    notify_started
+  end
+
   private
 
   def notify_created
@@ -66,7 +75,7 @@ class Battle < ApplicationRecord
   end
 
   def notify_started
-    return if fighting?
+    return unless fighting?
 
     BattleChannel.broadcast_to(avatar1.user, action: 'battle:started')
     BattleChannel.broadcast_to(avatar2.user, action: 'battle:started')

@@ -14,20 +14,23 @@ export default {
   },
   data() {
     return {
-      avatar: null,
       players: []
     }
   },
+  props: {
+    avatar: {
+      type: Object,
+      default: null
+    }
+  },
   mounted() {
-    PlayerEvent.$on('avatar:load', ({ avatar }) => this.avatar = avatar)
+
     PlayerEvent.$on('player:refresh', ({ avatar }) => {
       if (!this.avatar || !avatar) {
         return;
       }
 
       if (this.avatar.id === avatar.id) {
-        const idx = this.players.findIndex(p => p.id === this.avatar.id)
-        this.players.splice(idx, 1)
         return;
       }
 
