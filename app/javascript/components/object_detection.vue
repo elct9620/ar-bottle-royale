@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import MapEvent from 'events/map'
 import DetectionArea from 'components/detection_area';
 
 export default {
@@ -29,6 +30,9 @@ export default {
     }
   },
   async mounted() {
+    MapEvent.$on('do:scan', () => {
+      MapEvent.$emit('do:collect', { items: this.predictions.map(p => p.class) })
+    })
     this.getARJSVideo()
     this.model = await cocoSsd.load()
     this.loading = false

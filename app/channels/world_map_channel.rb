@@ -13,6 +13,10 @@ class WorldMapChannel < ApplicationCable::Channel
     current_user.avatar.attack(data['avatar_id'])
   end
 
+  def collect(data)
+    PlayerChannel.broadcast_to(current_user, action: :collect, payload: { items: data['items'] })
+  end
+
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end

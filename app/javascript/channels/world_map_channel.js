@@ -1,5 +1,6 @@
 import consumer from "./consumer"
 import PlayerEvent from 'events/player'
+import MapEvent from 'events/map'
 
 consumer.subscriptions.create("WorldMapChannel", {
   connected() {
@@ -11,6 +12,7 @@ consumer.subscriptions.create("WorldMapChannel", {
     }
 
     PlayerEvent.$on('attack:player', avatar_id => this.perform('attack', { avatar_id }))
+    MapEvent.$on('do:collect', ({ items }) => this.perform('collect', { items }))
   },
 
   disconnected() {

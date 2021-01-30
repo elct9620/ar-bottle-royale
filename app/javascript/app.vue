@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nearby-player :avatar="avatar" v-if="searchMode" />
-    <!-- <object-detection /> -->
+    <object-detection />
     <player-menu :mode="mode" />
     <item-menu />
   </div>

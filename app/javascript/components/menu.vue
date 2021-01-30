@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import MapEvent from 'events/map'
 import BattleEvent from 'events/battle'
 
 import ScanIcon from 'assets/scan.png'
@@ -32,7 +33,7 @@ export default {
     scan(ev) {
       ev.preventDefault()
 
-      alert('TODO!')
+      MapEvent.$emit('do:scan')
     },
     attack(ev) {
       ev.preventDefault()
