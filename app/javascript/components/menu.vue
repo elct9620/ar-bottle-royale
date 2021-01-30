@@ -1,16 +1,25 @@
 <template>
   <div class="menu">
-    <button @click="scan" v-if="searchMode">Scan</button>
-    <button @click="attack" v-if="battleMode">Attack</button>
+    <a @click="scan" v-if="searchMode">
+      <img :src="scanIconSrc" />
+    </a>
+    <a @click="attack" v-if="battleMode">
+      <img :src="hitIconSrc" />
+    </a>
   </div>
 </template>
 
 <script>
 import BattleEvent from 'events/battle'
 
+import ScanIcon from 'assets/scan.png'
+import HitIcon from 'assets/hit.png'
+
 export default {
   data() {
     return {
+      scanIconSrc: ScanIcon,
+      hitIconSrc: HitIcon
     }
   },
   props: {
@@ -20,10 +29,14 @@ export default {
     }
   },
   methods: {
-    scan() {
+    scan(ev) {
+      ev.preventDefault()
+
       alert('TODO!')
     },
-    attack() {
+    attack(ev) {
+      ev.preventDefault()
+
       BattleEvent.$emit('attack')
     }
   },
@@ -39,17 +52,6 @@ export default {
 </script>
 
 <style scoped>
-button {
-  color: white;
-  background: green;
-  border: none;
-
-  text-align: center;
-
-  width: 64px;
-  height: 64px;
-}
-
 .menu {
   position: fixed;
   left: 0;
