@@ -12,7 +12,6 @@ consumer.subscriptions.create("BattleChannel", {
   },
 
   received({ action, payload }) {
-    console.log(action, payload)
     BattleEvent.$emit(action, payload)
   }
 });

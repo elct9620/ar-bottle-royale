@@ -22,7 +22,6 @@ export default {
       ev.preventDefault();
 
       PlayerEvent.$emit('attack:player', this.id)
-      alert(`Attack ${this.displayName}!!`)
     }
   },
   computed: {

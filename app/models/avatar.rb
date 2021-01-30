@@ -22,6 +22,8 @@ class Avatar < ApplicationRecord
 
   belongs_to :user
   has_many :battles, dependent: :destroy
+  has_many :item_inventories, dependent: :destroy
+  has_many :items, through: :item_inventories
 
   # Geocoder
   reverse_geocoded_by :latitude, :longitude

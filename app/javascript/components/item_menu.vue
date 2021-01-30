@@ -1,10 +1,17 @@
 <template>
   <div class="item-menu">
-    <button v-for="item in items" @click="use(item)">{{ item.name }}</button>
+    <a v-for="item in items" @click="use(item)">
+      <img :src="item.icon" />
+    </a>
   </div>
 </template>
 
 <script>
+import PlayerEvent from 'events/player'
+
+const assets = require.context('assets', true)
+const iconPath = (name) => assets(name, true)
+
 export default {
   data() {
     return {
@@ -13,6 +20,17 @@ export default {
         name: 'Dummy Item'
       }]
     }
+  },
+  mounted() {
+    PlayerEvent.$on('inventory:changed', ({ inventories }) => {
+      this.items = inventories.map(inv => {
+        return {
+          id: inv.id,
+          name: inv.item.name,
+          icon: iconPath(`./${inv.item.icon_name}.png`)
+        }
+      } )
+    })
   },
   methods: {
     use(item) {
@@ -23,19 +41,6 @@ export default {
 </script>
 
 <style scoped>
-button {
-  display: inline-block;
-
-  color: white;
-  background: blue;
-  border: none;
-
-  text-align: center;
-
-  width: 64px;
-  height: 64px;
-}
-
 .item-menu {
   position: fixed;
   left: 0;

@@ -16,4 +16,20 @@
 class ItemInventory < ApplicationRecord
   belongs_to :avatar
   belongs_to :item
+
+  after_commit :notify_inventory_changed
+
+  private
+
+  def notify_inventory_changed
+    PlayerChannel
+      .broadcast_to(
+        avatar.user,
+        action: 'inventory:changed',
+        payload: {
+          inventories: avatar
+            .item_inventories.includes(:item).as_json(include: :item)
+        }
+      )
+  end
 end

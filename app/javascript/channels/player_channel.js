@@ -10,9 +10,6 @@ consumer.subscriptions.create("PlayerChannel", {
     // Called when the subscription has been terminated by the server
   },
   received({ action, payload }) {
-    if (action == 'collect') {
-      // TODO: Update item list
-    }
     PlayerEvent.$emit(action, payload)
   }
 });

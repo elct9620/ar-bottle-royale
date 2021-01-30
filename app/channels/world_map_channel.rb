@@ -14,7 +14,7 @@ class WorldMapChannel < ApplicationCable::Channel
   end
 
   def collect(data)
-    PlayerChannel.broadcast_to(current_user, action: :collect, payload: { items: data['items'] })
+    CollectItemService.new(current_user.avatar, data['items']).perform
   end
 
   def unsubscribed
