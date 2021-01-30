@@ -5,21 +5,23 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
     >
-
-    <a-assets>
-      <a-asset-item ref="sword" src="/models/ggj_prp_wep_001.gltf"></a-asset-item>
-    </a-assets>
-
     <a-entity gltf-model="/models/ggj_prp_wep_001.gltf" position="0 -5 -30"></a-entity>
+
+    <nearby-player />
   </a-scene>
 </template>
 
 <script>
+import NearbyPlayer from 'components/nearby_player'
+
 export default {
+  components: {
+    'nearby-player': NearbyPlayer,
+  },
   data: function () {
     return {
     }
-  }
+  },
 }
 </script>
 

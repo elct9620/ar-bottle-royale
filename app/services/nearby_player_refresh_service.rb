@@ -9,7 +9,9 @@ class NearbyPlayerRefreshService
 
   def perform
     nearby_players.each do |player|
-      PlayerChannel.broadcast_to(player, avatar: avatar)
+      PlayerChannel.broadcast_to(player,
+                                 action: 'player:refresh',
+                                 payload: { avatar: avatar, id: avatar.id })
     end
   end
 

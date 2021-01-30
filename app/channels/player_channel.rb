@@ -5,6 +5,10 @@ class PlayerChannel < ApplicationCable::Channel
     stream_for current_user
   end
 
+  def load_avatar
+    PlayerChannel.broadcast_to(current_user, action: 'avatar:load', payload: { avatar: current_user.avatar })
+  end
+
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
