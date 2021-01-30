@@ -1,0 +1,43 @@
+<div class="container-fluid pt-5">
+  <div class="row m-auto">
+    <div class="col-12 fs-1 mt-1 px-5 text-center">THE FINAL HOPE</div>
+  </div>
+
+  <div class="mt-4">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="form-group form-check mt-2">
+          <%= f.check_box :remember_me, class: 'form-check-input' %>
+          <%= f.label :remember_me, class: 'form-check-label' do %>
+            <%= resource.class.human_attribute_name('remember_me') %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="container mt-3">
+        <div class="row">
+          <%= f.submit t('.sign_in'), class: 'btn btn-primary' %>
+
+          <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <%= button_to "Sign Up", new_registration_path(resource_name), class: 'btn btn-secondary mt-2' %><br />
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row m-auto">
+      <div class="col-12 text-center mt-3">version 0.1.0</div>
+    </div>
+  </div>
+</div>
