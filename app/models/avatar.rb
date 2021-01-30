@@ -39,9 +39,6 @@ class Avatar < ApplicationRecord
   # Validation
   validates :name, presence: true
 
-  # Callbacks
-  after_commit :refresh_nearby_avatars
-
   def attack(avatar_id)
     AttackPlayerService.new(self, avatar_id).perform
   end
@@ -75,8 +72,4 @@ class Avatar < ApplicationRecord
 
   # Avoid decode location to address
   def reverse_geocode; end
-
-  def refresh_nearby_avatars
-    NearbyPlayerRefreshService.new(self).perform
-  end
 end
