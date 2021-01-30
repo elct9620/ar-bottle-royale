@@ -42,6 +42,7 @@ gem 'devise-i18n'
 # Utils
 gem 'aasm'
 gem 'activerecord-import'
+gem 'after_commit_everywhere', '~> 0.1', '>= 0.1.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to
