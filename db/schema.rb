@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_30_171642) do
+ActiveRecord::Schema.define(version: 2021_01_30_183306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,14 +29,18 @@ ActiveRecord::Schema.define(version: 2021_01_30_171642) do
   create_table "avatars", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name", null: false
-    t.integer "hp", default: 10
-    t.integer "max_hp", default: 10
+    t.integer "hp", default: 100
+    t.integer "max_hp", default: 100
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "weapon_id"
+    t.bigint "armor_id"
+    t.index ["armor_id"], name: "index_avatars_on_armor_id"
     t.index ["latitude", "longitude"], name: "location"
     t.index ["user_id"], name: "index_avatars_on_user_id"
+    t.index ["weapon_id"], name: "index_avatars_on_weapon_id"
   end
 
   create_table "battles", force: :cascade do |t|
