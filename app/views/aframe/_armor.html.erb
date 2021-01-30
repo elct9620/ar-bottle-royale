@@ -1,17 +1,17 @@
 <script>
-  AFRAME.registerComponent('weapon', {
+  AFRAME.registerComponent('armor', {
     schema: {
       src: { type: 'model' }
     },
     init() {
       this.model = null
       this.loader = new THREE.GLTFLoader();
-      this.rightHandPromise = new Promise((resolve) => {
+      this.headPromise = new Promise((resolve) => {
         this.el.addEventListener('model-loaded', () => {
           // Grab the mesh / scene.
           const obj = this.el.getObject3D('mesh');
-          this.rightHand = obj.getObjectByName('handR_end')
-          resolve(this.rightHand)
+          this.head = obj.getObjectByName('head')
+          resolve(this.head)
         });
       })
     },
@@ -20,18 +20,21 @@
       var el = this.el;
       var src = this.data.src;
 
-      if (!src) { return; }
+      if (!src) {
+        this.remove()
+        return;
+      }
 
       this.remove();
 
       this.loader.load(src, function gltfLoaded (gltfModel) {
         self.model = gltfModel.scene || gltfModel.scenes[0];
         self.model.animations = gltfModel.animations;
-        self.rightHandPromise.then(rightHand => {
+        self.headPromise.then(head => {
           self.model.scale.set(0.5, 0.5, 0.5)
-          rightHand.add(self.model)
+          head.add(self.model)
         })
-        el.emit('weapon-loaded', { format: 'gltf', model: self.model });
+        el.emit('armor-loaded', { format: 'gltf', model: self.model });
       }, undefined /* onProgress */, function gltfFailed (error) {
         var message = (error && error.message) ? error.message : 'Failed to load glTF model';
         console.error(message)
@@ -40,7 +43,7 @@
     },
     remove: function () {
       if (!this.model) { return; }
-      this.rightHandPromise.then(rightHand => rightHand.remove(this.model))
+      this.headPromise.then(head => head.remove(this.model))
     }
   })
 </script>

@@ -77,8 +77,12 @@ class Battle < ApplicationRecord
   def notify_started
     return unless fighting?
 
-    BattleChannel.broadcast_to(avatar1.user, action: 'battle:started')
-    BattleChannel.broadcast_to(avatar2.user, action: 'battle:started')
+    BattleChannel.broadcast_to(avatar1.user,
+                               action: 'battle:started',
+                               payload: { avatar: avatar2.as_json(include: %i[weapon armor]) })
+    BattleChannel.broadcast_to(avatar2.user,
+                               action: 'battle:started',
+                               payload: { avatar: avatar1.as_json(include: %i[weapon armor]) })
   end
 
   def notify_ended

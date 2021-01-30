@@ -1,0 +1,357 @@
+{
+    "asset": {
+        "copyright": "(C)2021 jimmy",
+        "generator": "maya2glTF v1.2.1 03f669e0d38e",
+        "version": "2.0"
+    },
+    "scenes": [
+        {
+            "nodes": [
+                3,
+                0
+            ]
+        }
+    ],
+    "scene": 0,
+    "nodes": [
+        {
+            "name": "wep_joint_handle",
+            "children": [
+                1
+            ],
+            "translation": [
+                -0.008651516400277615,
+                1.1611205339431766,
+                -0.014391162432730198
+            ]
+        },
+        {
+            "name": "wep_joint_handle02:SSC",
+            "children": [
+                2
+            ],
+            "translation": [
+                0.0,
+                6.442380428314209,
+                0.0
+            ]
+        },
+        {
+            "name": "wep_joint_handle02"
+        },
+        {
+            "name": "ggj_prp_wep_003",
+            "children": [
+                4
+            ],
+            "translation": [
+                0.0,
+                4.601928234100342,
+                -0.019461987540125848
+            ],
+            "scale": [
+                2.5463695526123049,
+                2.5463695526123049,
+                2.5463695526123049
+            ]
+        },
+        {
+            "name": "ggj_prp_wep_003:PIV",
+            "mesh": 0,
+            "translation": [
+                0.0,
+                -1.7258542776107789,
+                0.019461987540125848
+            ],
+            "skin": 0
+        }
+    ],
+    "meshes": [
+        {
+            "name": "ggj_prp_wep_003Shape",
+            "extras": {
+                "targetNames": []
+            },
+            "primitives": [
+                {
+                    "attributes": {
+                        "JOINTS_0": 1,
+                        "NORMAL": 2,
+                        "POSITION": 3,
+                        "TANGENT": 4,
+                        "TEXCOORD_0": 5,
+                        "WEIGHTS_0": 6
+                    },
+                    "indices": 0,
+                    "mode": 4,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "skins": [
+        {
+            "name": "ggj_prp_wep_003Shape",
+            "inverseBindMatrices": 7,
+            "joints": [
+                0,
+                2
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "weapon_003",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1.0
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 0.0,
+                "roughnessFactor": 1.0
+            }
+        }
+    ],
+    "textures": [
+        {
+            "sampler": 0,
+            "source": 0
+        }
+    ],
+    "images": [
+        {
+            "uri": "ggj_prp_wep_003_weapon_003_BaseColor.png"
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "wrapS": 10497,
+            "wrapT": 10497
+        }
+    ],
+    "accessors": [
+        {
+            "name": "ggj_prp_wep_003Shape#0/indices",
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 1020,
+            "max": [
+                273
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "name": "ggj_prp_wep_003Shape#0/vertices/JOINTS_0",
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 274,
+            "max": [
+                0,
+                1,
+                0,
+                0
+            ],
+            "min": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "ggj_prp_wep_003Shape#0/vertices/NORMAL",
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 274,
+            "max": [
+                1.0,
+                0.9999999403953552,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -0.9999999403953552,
+                -1.0
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "ggj_prp_wep_003Shape#0/vertices/POSITION",
+            "bufferView": 2,
+            "byteOffset": 3288,
+            "componentType": 5126,
+            "count": 274,
+            "max": [
+                0.16764821112155918,
+                3.4463796615600588,
+                0.480538010597229
+            ],
+            "min": [
+                -0.16764821112155918,
+                0.005328714847564697,
+                -0.519461989402771
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "ggj_prp_wep_003Shape#0/vertices/TANGENT",
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 274,
+            "max": [
+                1.0,
+                0.32387930154800417,
+                0.9999999403953552,
+                1.0
+            ],
+            "min": [
+                -0.9751356840133668,
+                -0.32387930154800417,
+                -0.9999999403953552,
+                1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "ggj_prp_wep_003Shape#0/vertices/TEXCOORD_0",
+            "bufferView": 1,
+            "byteOffset": 2192,
+            "componentType": 5126,
+            "count": 274,
+            "max": [
+                0.998008131980896,
+                0.998257040977478
+            ],
+            "min": [
+                0.0019920319318771364,
+                0.12678778171539308
+            ],
+            "type": "VEC2"
+        },
+        {
+            "name": "ggj_prp_wep_003Shape#0/vertices/WEIGHTS_0",
+            "bufferView": 3,
+            "byteOffset": 4384,
+            "componentType": 5126,
+            "count": 274,
+            "max": [
+                1.0,
+                0.5,
+                0.0,
+                0.0
+            ],
+            "min": [
+                0.5,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "ggj_prp_wep_003Shape/skin/IBM",
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 2,
+            "max": [
+                2.5463695526123049,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                2.5463695526123049,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                2.5463695526123049,
+                0.0,
+                0.008651516400277615,
+                -0.9538551568984984,
+                0.04448658600449562,
+                1.0
+            ],
+            "min": [
+                2.5463695526123049,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                2.5463695526123049,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                2.5463695526123049,
+                0.0,
+                0.008651516400277615,
+                -7.396235466003418,
+                0.04448658600449562,
+                1.0
+            ],
+            "type": "MAT4"
+        }
+    ],
+    "bufferViews": [
+        {
+            "name": "ggj_prp_wep_003/data/indices-2",
+            "buffer": 0,
+            "byteOffset": 19856,
+            "byteLength": 2040,
+            "target": 34963
+        },
+        {
+            "name": "ggj_prp_wep_003/data/vertices-8",
+            "buffer": 0,
+            "byteOffset": 15472,
+            "byteLength": 4384,
+            "byteStride": 8,
+            "target": 34962
+        },
+        {
+            "name": "ggj_prp_wep_003/data/vertices-12",
+            "buffer": 0,
+            "byteOffset": 8896,
+            "byteLength": 6576,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "name": "ggj_prp_wep_003/data/vertices-16",
+            "buffer": 0,
+            "byteOffset": 128,
+            "byteLength": 8768,
+            "byteStride": 16,
+            "target": 34962
+        },
+        {
+            "name": "ggj_prp_wep_003/data/generic-64",
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 128
+        }
+    ],
+    "buffers": [
+        {
+            "name": "ggj_prp_wep_003/data",
+            "byteLength": 21896,
+            "uri": "ggj_prp_wep_0030.bin"
+        }
+    ]
+}

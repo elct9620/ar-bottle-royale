@@ -1,4 +1,5 @@
 <%= render 'aframe/weapon' %>
+<%= render 'aframe/armor' %>
 <%= render 'aframe/player' %>
 <a-scene
   style="position: relative; z-index: 99"
@@ -11,16 +12,20 @@
 
   <a-assets>
     <img id="combat" src="/models/combat_impact.png"></img>
-    <a-asset-item id="wep001" src="/models/ggj_prp_wep_001.gltf"></a-asset-item>
-    <a-asset-item id="wep002" src="/models/ggj_prp_wep_002.gltf"></a-asset-item>
-    <a-asset-item id="char001" src="/models/ggj_prp_char_001.gltf"></a-asset-item>
+    <a-asset-item id="ggj_prp_wep_001" src="/models/weapon/ggj_prp_wep_001.gltf"></a-asset-item>
+    <a-asset-item id="ggj_prp_wep_002" src="/models/weapon/ggj_prp_wep_002.gltf"></a-asset-item>
+    <a-asset-item id="ggj_prp_wep_003" src="/models/weapon/ggj_prp_wep_003.gltf"></a-asset-item>
+    <a-asset-item id="ggj_prp_armor_001" src="/models/armor/ggj_prp_armor_001.gltf"></a-asset-item>
+    <a-asset-item id="ggj_prp_armor_002" src="/models/armor/ggj_prp_armor_002.gltf"></a-asset-item>
+    <a-asset-item id="ggj_prp_armor_003" src="/models/armor/ggj_prp_armor_003.gltf"></a-asset-item>
+    <a-asset-item id="char001" src="/models/other/ggj_prp_char_001.gltf"></a-asset-item>
   </a-assets>
 
   <a-light type="ambient" color="#FFFFFF"></a-light>
 
   <!-- other player -->
 
-  <a-player visible="false" wep="#wep001">
+  <a-player visible="false">
     <a-image id="combatVFX" visible="false" src="#combat" scale="5 5 1" position="0 10 5"></a-image>
   </a-player>
 

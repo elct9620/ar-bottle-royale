@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nearby-player :avatar="avatar" v-if="searchMode" />
-    <object-detection />
+      <!-- <object-detection /> -->
     <player-menu :mode="mode" />
     <item-menu />
   </div>
@@ -34,9 +34,20 @@ export default {
   mounted() {
     PlayerEvent.$on('avatar:load', ({ avatar }) => this.avatar = avatar)
 
-    BattleEvent.$on('battle:started', () => {
+    BattleEvent.$on('battle:started', ({ avatar }) => {
       this.mode = 'battle'
       this.foePlayer.setAttribute('visible', true)
+      if (avatar.weapon) {
+        this.foePlayer.setAttribute('wep', `#${avatar.weapon.asset_name}`)
+      } else {
+        this.foePlayer.setAttribute('wep', '')
+      }
+
+      if (avatar.armor) {
+        this.foePlayer.setAttribute('arm', `#${avatar.armor.asset_name}`)
+      } else {
+        this.foePlayer.setAttribute('arm', '')
+      }
     })
 
     BattleEvent.$on('damage:apply', () => {
