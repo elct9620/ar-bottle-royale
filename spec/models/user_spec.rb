@@ -19,5 +19,19 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'build avatar' do
+    subject(:save_user) { user.save }
+
+    let(:user) { build(:user) }
+
+    it { expect { save_user }.to change(Avatar.all, :size).by(1) }
+
+    context 'when update exists user' do
+      let(:user) { create(:user) }
+
+      before { user.email = Faker::Internet.email }
+
+      it { expect { save_user }.not_to change(Avatar.all, :size) }
+    end
+  end
 end

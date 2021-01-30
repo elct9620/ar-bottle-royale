@@ -23,4 +23,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :avatar, dependent: :nullify
+
+  before_create :prepare_avatar
+
+  private
+
+  def prepare_avatar
+    build_avatar(name: 'anonymous')
+  end
 end
