@@ -19,6 +19,13 @@ class ItemInventory < ApplicationRecord
 
   after_commit :notify_inventory_changed
 
+  def use
+    transaction do
+      item.apply(avatar)
+      destroy
+    end
+  end
+
   private
 
   def notify_inventory_changed

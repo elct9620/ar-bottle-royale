@@ -15,10 +15,7 @@ const iconPath = (name) => assets(name, true)
 export default {
   data() {
     return {
-      items: [{
-        id: 0,
-        name: 'Dummy Item'
-      }]
+      items: []
     }
   },
   mounted() {
@@ -34,7 +31,7 @@ export default {
   },
   methods: {
     use(item) {
-      alert('Use Item!')
+      PlayerEvent.$emit('do:use_item', { inventory_id: item.id })
     }
   }
 }

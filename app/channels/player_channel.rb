@@ -21,6 +21,14 @@ class PlayerChannel < ApplicationCable::Channel
       )
   end
 
+  def use_item(data)
+    current_user
+      .avatar
+      .item_inventories
+      .find_by(id: data['inventory_id'])
+      &.use
+  end
+
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end

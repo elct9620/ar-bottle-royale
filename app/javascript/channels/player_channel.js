@@ -5,6 +5,8 @@ consumer.subscriptions.create("PlayerChannel", {
   connected() {
     this.perform('load_avatar')
     this.perform('load_inventories')
+
+    PlayerEvent.$on('do:use_item', ({ inventory_id }) => this.perform('use_item', { inventory_id }))
   },
 
   disconnected() {

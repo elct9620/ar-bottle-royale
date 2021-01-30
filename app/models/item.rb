@@ -16,4 +16,7 @@
 #  index_items_on_type_and_id  (type,id)
 #
 class Item < ApplicationRecord
+  def apply(_avatar)
+    # Nope
+  end
 end
