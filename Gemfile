@@ -35,9 +35,9 @@ gem 'geocoder'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Frnot End
+gem 'bootstrap', '~> 5.0.0.beta1'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'devise-i18n'
-gem 'bootstrap', '~> 5.0.0.beta1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to
