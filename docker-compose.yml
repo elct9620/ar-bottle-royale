@@ -1,0 +1,46 @@
+version: '3.4'
+
+x-app: &app
+  image: "registry.frost.tw/elct9620/global-game-jam-2021:${VERSION:-latest}"
+  # TODO: Move unused variable to credentials
+  environment:
+    - AUTO_MIGRATION=yes
+    - DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
+    - REDIS_URL=redis:6379
+    - RAILS_MASTER_KEY
+    - UPLOADED_ASSET_HOST
+  volumes:
+      - application_data:/srv/app/public/system
+  depends_on:
+    - postgres
+
+volumes:
+  postgres_data:
+    driver: local
+  application_data:
+    driver: local
+
+services:
+  postgres:
+    image: postgres:13.1
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+  nginx:
+    image: "registry.frost.tw/elct9620/global-game-jam-2021/nginx:${VERSION:-latest}"
+    volumes:
+      - application_data:/usr/share/nginx/html/system:ro
+    environment:
+      - NGINX_APPLICATION_URL=application:3000
+      - PUBLIC_PORT
+    ports:
+      - "$PUBLIC_PORT:$PUBLIC_PORT"
+    depends_on:
+      - application
+  redis:
+    image: redis:6.0
+  application:
+    <<: *app
