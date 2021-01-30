@@ -168,10 +168,16 @@ docker:rails:
       --cache-from $CI_REGISTRY_IMAGE:gems
       --tag $CI_REGISTRY_IMAGE:gems .
     - docker build
+      --target node
       --cache-from $CI_REGISTRY_IMAGE:gems
+      --tag $CI_REGISTRY_IMAGE:node .
+    - docker build
+      --cache-from $CI_REGISTRY_IMAGE:gems
+      --cache-from $CI_REGISTRY_IMAGE:node
       --cache-from $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
       --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG .
     - docker push $CI_REGISTRY_IMAGE:gems
+    - docker push $CI_REGISTRY_IMAGE:node
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
