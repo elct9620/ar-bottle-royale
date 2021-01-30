@@ -11,6 +11,8 @@ class CollectItemService
   def perform
     return unless drop?
 
+    avatar.drop_item if avatar.backpack_full?
+
     avatar.item_inventories.create(item: picked_item.item)
   end
 

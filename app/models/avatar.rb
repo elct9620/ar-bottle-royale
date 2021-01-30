@@ -19,6 +19,7 @@
 #
 class Avatar < ApplicationRecord
   SCAN_RANGE = 1 # 1km
+  MAX_ITEM_INVENTORY = 5
 
   belongs_to :user
   has_many :battles, dependent: :destroy
@@ -54,6 +55,14 @@ class Avatar < ApplicationRecord
   def apply_damage(amount)
     decrement(:hp, amount)
     save
+  end
+
+  def backpack_full?
+    item_inventories.size >= MAX_ITEM_INVENTORY
+  end
+
+  def drop_item
+    item_inventories.order(created_at: :asc).first.destroy
   end
 
   private
