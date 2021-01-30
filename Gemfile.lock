@@ -49,6 +49,8 @@ GEM
     activerecord (6.1.1)
       activemodel (= 6.1.1)
       activesupport (= 6.1.1)
+    activerecord-import (1.0.5)
+      activerecord (>= 3.2)
     activestorage (6.1.1)
       actionpack (= 6.1.1)
       activejob (= 6.1.1)
@@ -358,6 +360,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  activerecord-import
   annotate
   bankai
   bootsnap (>= 1.1.0)

@@ -41,6 +41,7 @@ gem 'devise-i18n'
 
 # Utils
 gem 'aasm'
+gem 'activerecord-import'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to
