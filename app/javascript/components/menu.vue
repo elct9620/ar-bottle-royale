@@ -37,7 +37,7 @@ export default {
     attack(ev) {
       ev.preventDefault()
 
-      BattleEvent.$emit('attack')
+      BattleEvent.$emit('do:attack')
     }
   },
   computed: {

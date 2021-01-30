@@ -45,6 +45,15 @@ class Avatar < ApplicationRecord
       .first
   end
 
+  def apply_effect(action, amount)
+    send("apply_#{action}", amount)
+  end
+
+  def apply_damage(amount)
+    decrement(:hp, amount)
+    save
+  end
+
   private
 
   # Avoid decode location to address

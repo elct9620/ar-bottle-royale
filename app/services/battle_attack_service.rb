@@ -10,17 +10,10 @@ class BattleAttackService
   end
 
   def perform
-    foe.with_lock do
-      foe.decrement(:hp).save if foe.hp.positive?
+    avatar.transaction do
+      current_battle
+        .actions
+        .create!(avatar: avatar, action: :damage, amount: 1)
     end
-  end
-
-  def foe
-    @foe ||=
-      if current_battle.avatar1 == avatar
-        current_battle.avatar2
-      else
-        current_battle.avatar1
-      end
   end
 end

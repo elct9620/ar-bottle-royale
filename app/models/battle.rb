@@ -16,10 +16,13 @@
 #  index_battles_on_avatar2_id  (avatar2_id)
 #
 class Battle < ApplicationRecord
+  MAX_TURN = 2
+
   include AASM
 
   belongs_to :avatar1, class_name: 'Avatar'
   belongs_to :avatar2, class_name: 'Avatar'
+  has_many :actions, dependent: :destroy
 
   scope :incompleted, -> { where.not(state: %i[ended cancelled]) }
 
@@ -37,7 +40,7 @@ class Battle < ApplicationRecord
       transitions from: :joined, to: :fighting
     end
 
-    event :finish do
+    event :finish, after_commit: :notify_ended do
       transitions from: :fighting, to: :ended
     end
 
@@ -48,17 +51,29 @@ class Battle < ApplicationRecord
     end
   end
 
+  def foe(avatar)
+    return avatar2 if avatar1 == avatar
+    return avatar1 if avatar2 == avatar
+
+    nil
+  end
+
   private
 
   def notify_created
-    PlayerChannel.broadcast_to(avatar1.user, action: 'battle:created')
-    PlayerChannel.broadcast_to(avatar2.user, action: 'battle:created')
+    BattleChannel.broadcast_to(avatar1.user, action: 'battle:created')
+    BattleChannel.broadcast_to(avatar2.user, action: 'battle:created')
   end
 
   def notify_started
     return if fighting?
 
-    PlayerChannel.broadcast_to(avatar1.user, action: 'battle:started')
-    PlayerChannel.broadcast_to(avatar2.user, action: 'battle:started')
+    BattleChannel.broadcast_to(avatar1.user, action: 'battle:started')
+    BattleChannel.broadcast_to(avatar2.user, action: 'battle:started')
+  end
+
+  def notify_ended
+    BattleChannel.broadcast_to(avatar1.user, action: 'battle:ended')
+    BattleChannel.broadcast_to(avatar2.user, action: 'battle:ended')
   end
 end

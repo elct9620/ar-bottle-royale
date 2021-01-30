@@ -9,6 +9,7 @@
 
 <script>
 import PlayerEvent from 'events/player'
+import BattleEvent from 'events/battle'
 
 import NearbyPlayer from 'components/nearby_player'
 import ObjectDetection from 'components/object_detection'
@@ -29,9 +30,14 @@ export default {
     }
   },
   mounted() {
-    PlayerEvent.$on('battle:started', () => {
+    BattleEvent.$on('battle:started', () => {
       this.mode = 'battle'
       this.foePlayer.setAttribute('visible', true)
+    })
+
+    BattleEvent.$on('battle:ended', () => {
+      this.mode = 'search'
+      this.foePlayer.setAttribute('visible', false)
     })
 
     this.foePlayer = document.querySelector('a-player')

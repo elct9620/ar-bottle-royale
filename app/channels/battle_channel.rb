@@ -9,6 +9,10 @@ class BattleChannel < ApplicationCable::Channel
     BattleAttackService.new(current_user.avatar).perform
   end
 
+  def join_battle
+    current_user.avatar.current_battle.join!
+  end
+
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end

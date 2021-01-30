@@ -9,10 +9,6 @@ class PlayerChannel < ApplicationCable::Channel
     PlayerChannel.broadcast_to(current_user, action: 'avatar:load', payload: { avatar: current_user.avatar })
   end
 
-  def join_battle
-    current_user.avatar.current_battle.join!
-  end
-
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
