@@ -24,6 +24,8 @@ export default {
       videoOffsetLeft: '0',
       videoOffsetTop: '0',
       predictions: [],
+      lastDetectTime: 0,
+      nextDetectTime: 0,
     }
   },
   async mounted() {
@@ -55,7 +57,15 @@ export default {
     },
     scheduleNext() {
       requestAnimationFrame(() => {
-        this.detectObject()
+        if (this.nextDetectTime <= 0) {
+          this.detectObject()
+          this.nextDetectTime = 1000;
+        } else {
+          this.scheduleNext()
+        }
+
+        this.nextDetectTime -= (new Date()).getTime() - this.lastDetectTime
+        this.lastDetectTime = (new Date()).getTime()
       });
     },
     detectObject() {
@@ -107,6 +117,8 @@ export default {
   left: 0;
 
   border: 5px solid green;
+
+  pointer-events: none;
 }
 
 .loading {
