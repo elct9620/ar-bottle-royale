@@ -15,6 +15,7 @@
 # Indexes
 #
 #  index_avatars_on_user_id  (user_id)
+#  location                  (latitude,longitude)
 #
 class Avatar < ApplicationRecord
   belongs_to :user
