@@ -1,7 +1,7 @@
 version: '3.4'
 
 x-app: &app
-  image: "registry.frost.tw/elct9620/global-game-jam-2021:${VERSION:-latest}"
+  image: "elct9620/ar-battle-royale:${VERSION:-latest}"
   # TODO: Move unused variable to credentials
   environment:
     - AUTO_MIGRATION=yes
@@ -30,7 +30,7 @@ services:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
   nginx:
-    image: "registry.frost.tw/elct9620/global-game-jam-2021/nginx:${VERSION:-latest}"
+    image: "elct9620/ar-battle-royale:${VERSION:-latest}-nginx"
     volumes:
       - application_data:/usr/share/nginx/html/system:ro
     environment:
