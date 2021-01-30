@@ -23,4 +23,9 @@ class Avatar < ApplicationRecord
   after_validation :reverse_geocode
 
   validates :name, presence: true
+
+  private
+
+  # Avoid decode location to address
+  def reverse_geocode; end
 end
