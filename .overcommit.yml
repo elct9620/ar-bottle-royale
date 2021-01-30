@@ -11,9 +11,17 @@ PreCommit:
   BundleAudit:
     enabled: true
 
+PostCommit:
+  CustomScript:
+    enabled: true
+    required_executable: './bin/lfs/post-commit'
+
 PrePush:
   Brakeman:
     enabled: true
+  CustomScript:
+    enabled: true
+    required_executable: './bin/lfs/pre-push'
 
 PostCheckout:
   ALL: # Special hook name that customizes all hooks of this type
@@ -21,3 +29,12 @@ PostCheckout:
 
   IndexTags:
     enabled: true # Generate a tags file with `ctags` each time HEAD changes
+
+  CustomScript:
+    enabled: true
+    required_executable: './bin/lfs/post-checkout'
+
+PostMerge:
+  CustomScript:
+    enabled:
+    required_executable: './bin/lfs/post-merge'
