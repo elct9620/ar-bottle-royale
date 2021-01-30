@@ -21,6 +21,7 @@ class Action < ApplicationRecord
 
   before_save :apply_effect
   after_save :check_battle
+  after_commit :notify_damage
 
   private
 
@@ -32,5 +33,9 @@ class Action < ApplicationRecord
 
   def check_battle
     battle.finish! if battle.actions.size >= Battle::MAX_TURN
+  end
+
+  def notify_damage
+    BattleChannel.broadcast_to(avatar.user, action: "#{action}:apply")
   end
 end

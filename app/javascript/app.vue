@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nearby-player :avatar="avatar" v-if="searchMode" />
-    <object-detection />
+    <!-- <object-detection /> -->
     <player-menu :mode="mode" />
     <item-menu />
   </div>
@@ -28,6 +28,7 @@ export default {
       avatar: null,
       mode: 'search',
       foePlayer: null,
+      combatEffect: null,
     }
   },
   mounted() {
@@ -38,12 +39,18 @@ export default {
       this.foePlayer.setAttribute('visible', true)
     })
 
+    BattleEvent.$on('damage:apply', () => {
+      this.combatEffect.setAttribute('visible', true)
+      setTimeout(() => this.combatEffect.setAttribute('visible', false), 100)
+    })
+
     BattleEvent.$on('battle:ended', () => {
       this.mode = 'search'
       this.foePlayer.setAttribute('visible', false)
     })
 
     this.foePlayer = document.querySelector('a-player')
+    this.combatEffect = document.getElementById('combatVFX')
   },
   computed: {
     searchMode() {

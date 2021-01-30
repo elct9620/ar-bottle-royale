@@ -10,6 +10,7 @@
   >
 
   <a-assets>
+    <img id="combat" src="/models/combat_impact.png"></img>
     <a-asset-item id="wep001" src="/models/ggj_prp_wep_001.gltf"></a-asset-item>
     <a-asset-item id="wep002" src="/models/ggj_prp_wep_002.gltf"></a-asset-item>
     <a-asset-item id="char001" src="/models/ggj_prp_char_001.gltf"></a-asset-item>
@@ -18,7 +19,10 @@
   <a-light type="ambient" color="#FFFFFF"></a-light>
 
   <!-- other player -->
-  <a-player visible="false" wep="#wep001"></a-player>
+
+  <a-player visible="false" wep="#wep001">
+    <a-image id="combatVFX" visible="false" src="#combat" scale="5 5 1" position="0 10 5"></a-image>
+  </a-player>
 
   <a-camera look-controls>
     <a-cursor
