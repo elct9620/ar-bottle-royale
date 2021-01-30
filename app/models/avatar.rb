@@ -26,6 +26,8 @@ class Avatar < ApplicationRecord
   MAX_ITEM_INVENTORY = 5
 
   belongs_to :user
+  belongs_to :weapon, class_name: 'Weapon', optional: true
+  belongs_to :armor, class_name: 'Armor', optional: true
   has_many :battles, dependent: :destroy
   has_many :item_inventories, dependent: :destroy
   has_many :items, through: :item_inventories

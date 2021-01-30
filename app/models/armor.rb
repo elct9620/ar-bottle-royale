@@ -18,4 +18,7 @@
 #  index_items_on_type_and_id  (type,id)
 #
 class Armor < Item
+  def apply(avatar)
+    avatar.update(armor: self)
+  end
 end
