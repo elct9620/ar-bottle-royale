@@ -1,6 +1,3 @@
-// Rails Support
-require("channels")
-
 // Vue
 import Vue from 'vue'
 import App from 'app'
@@ -20,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   cocoSsd.load().then(() => {
     $loading.style.display = 'none'
     if ($app) {
+      require("channels")
       app.$mount($app)
     }
   })

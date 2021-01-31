@@ -86,10 +86,10 @@ export default {
 .status {
   position: fixed;
   left: 0;
-  bottom: 64px;
+  bottom: 90px;
 
   width: 100vw;
-  height: 64px;
+  height: 90px;
 
   color: white;
   text-align: center;

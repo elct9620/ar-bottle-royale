@@ -57,6 +57,14 @@ class Avatar < ApplicationRecord
 
   def apply_damage(amount)
     decrement(:hp, amount)
+    killed if hp <= 0
+    save
+  end
+
+  def killed
+    current_battle.finish!
+    notify_killed
+    self.hp = max_hp
     save
   end
 
@@ -72,4 +80,8 @@ class Avatar < ApplicationRecord
 
   # Avoid decode location to address
   def reverse_geocode; end
+
+  def notify_killed
+    PlayerChannel.broadcast_to(user, action: 'player:killed')
+  end
 end
