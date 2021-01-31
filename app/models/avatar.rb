@@ -62,8 +62,9 @@ class Avatar < ApplicationRecord
   end
 
   def killed
+    foe = current_battle.foe(self)
     current_battle.finish!
-    notify_killed
+    notify_killed_by(foe)
     self.hp = max_hp
     save
   end
@@ -81,7 +82,8 @@ class Avatar < ApplicationRecord
   # Avoid decode location to address
   def reverse_geocode; end
 
-  def notify_killed
+  def notify_killed_by(foe)
     PlayerChannel.broadcast_to(user, action: 'player:killed')
+    PlayerChannel.broadcast_to(foe.user, action: 'player:defeat_foe')
   end
 end
