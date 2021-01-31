@@ -8,6 +8,7 @@
   embedded
   arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   loading-screen
+  enemy-position
   >
 
   <a-assets>
@@ -35,16 +36,17 @@
   <a-sound id="envSound" autoplay="true" loop="true" src="#theme001" volume="0.5"></a-sound>
   <a-sound id="sfx" poolSize="4"></a-sound>
 
-  <!-- other player -->
-  <a-player visible="false">
-    <a-image id="combatVFX" visible="false" src="#combat" scale="5 5 1" position="0 10 5"></a-image>
-  </a-player>
-
   <a-camera look-controls>
     <a-cursor
       material="color: white; shader: flat"
       >
     </a-cursor>
+
+    <!-- other player -->
+    <a-player visible="false">
+      <a-image id="combatVFX" visible="false" src="#combat" scale="5 5 1" position="0 10 5"></a-image>
+    </a-player>
+
   </a-camera>
 </a-scene>
 
