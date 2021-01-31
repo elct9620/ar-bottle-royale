@@ -66,14 +66,14 @@ export default {
     },
     currentHp() {
       if (!this.currentAvatarState) {
-        return '???'
+        return this.avatar ? this.avatar.hp : '???'
       }
 
       return this.currentAvatarState.hp
     },
     maxHp() {
       if (!this.currentAvatarState) {
-        return '???'
+        return this.avatar ? this.avatar.max_hp : '???'
       }
 
       return this.currentAvatarState.max_hp
