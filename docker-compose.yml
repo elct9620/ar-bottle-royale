@@ -8,7 +8,7 @@ x-app: &app
     - DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
     - REDIS_URL=redis://redis:6379/1
     - RAILS_MASTER_KEY
-    - UPLOADED_ASSET_HOST
+    - SENTRY_DSN
   volumes:
       - application_data:/srv/app/public/system
   depends_on:
