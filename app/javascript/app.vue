@@ -28,6 +28,10 @@ export default {
   },
   data: function () {
     return {
+      hurtSounds: [
+        '#hurt_004',
+        '#hurt_005'
+      ],
       avatar: null,
       mode: 'search',
       envSound: null,
@@ -58,7 +62,9 @@ export default {
 
     BattleEvent.$on('damage:apply', () => {
       this.combatEffect.setAttribute('visible', true)
-      this.sfx.setAttribute('src', '#sword_swash_004')
+
+      const sound = this.hurtSounds[Math.floor(Math.random() * 2)]
+      this.sfx.setAttribute('src', sound)
       this.sfx.components.sound.playSound()
       setTimeout(() => this.combatEffect.setAttribute('visible', false), 100)
     })
