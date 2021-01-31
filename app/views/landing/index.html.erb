@@ -27,12 +27,13 @@
     <audio id="sword_swash_004" src="/sounds/sfx/sword_swash_004.mp3"></audio>
     <audio id="hurt_004" src="/sounds/sfx/hurt_004.mp3"></audio>
     <audio id="hurt_005" src="/sounds/sfx/hurt_005.mp3"></audio>
+    <audio id="picking_backpack_002" src="/sounds/sfx/picking_backpack_002.mp3"></audio>
   </a-assets>
 
   <!-- Environment -->
   <a-light type="ambient" color="#FFFFFF"></a-light>
   <a-sound id="envSound" autoplay="true" loop="true" src="#theme001" volume="0.5"></a-sound>
-  <a-sound id="sfx"></a-sound>
+  <a-sound id="sfx" poolSize="4"></a-sound>
 
   <!-- other player -->
   <a-player visible="false">

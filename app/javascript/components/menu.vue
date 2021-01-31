@@ -40,7 +40,7 @@ export default {
   },
   mounted() {
     PlayerEvent.$on('player:refresh', ({ avatar }) => {
-      if (this.avatar.id === avatar.id) {
+      if (avatar && this.avatar.id === avatar.id) {
         this.currentAvatarState = avatar
       }
     })

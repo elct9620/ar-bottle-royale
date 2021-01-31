@@ -18,8 +18,17 @@ export default {
       items: []
     }
   },
+  props: {
+    sfx: {
+      type: HTMLElement,
+      default: null
+    }
+  },
   mounted() {
     PlayerEvent.$on('inventory:changed', ({ inventories }) => {
+      this.sfx.setAttribute('src', '#picking_backpack_002')
+      this.sfx.components.sound.playSound()
+
       this.items = inventories.map(inv => {
         return {
           id: inv.id,
