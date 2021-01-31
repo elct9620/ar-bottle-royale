@@ -34,10 +34,14 @@ gem 'geocoder'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# Frnot End
+# FrontEnd
 gem 'bootstrap', '~> 5.0.0.beta1'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'devise-i18n'
+
+# Error Tracking
+gem 'sentry-rails'
+gem 'sentry-ruby'
 
 # Utils
 gem 'aasm'
