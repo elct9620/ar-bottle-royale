@@ -6,7 +6,7 @@ class WorldMapChannel < ApplicationCable::Channel
   end
 
   def update_position(data)
-    current_user.avatar.update(data['position'].slice(:latitude, :longitude))
+    current_user.avatar.update(data['position'])
     NearbyPlayerRefreshService.new(current_user.avatar).perform
   end
 
