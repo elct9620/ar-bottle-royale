@@ -74,7 +74,7 @@ class Avatar < ApplicationRecord
   end
 
   def drop_item
-    item_inventories.order(created_at: :asc).first.destroy
+    item_inventories.order(created_at: :asc).first&.destroy
   end
 
   private
