@@ -23,11 +23,12 @@
     <a-asset-item id="char001" src="/models/other/ggj_prp_char_001.gltf"></a-asset-item>
     <!-- Audio -->
     <audio id="theme001" src="/sounds/theme_001.mp3"></audio>
+    <audio id="theme002" src="/sounds/theme_002.mp3"></audio>
   </a-assets>
 
   <!-- Environment -->
   <a-light type="ambient" color="#FFFFFF"></a-light>
-  <a-sound autoplay="true" loop="true" src="#theme001"></a-sound>
+  <a-sound id="envSound" autoplay="true" loop="true" src="#theme001"></a-sound>
 
   <!-- other player -->
   <a-player visible="false">

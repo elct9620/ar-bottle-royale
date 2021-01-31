@@ -30,6 +30,7 @@ export default {
     return {
       avatar: null,
       mode: 'search',
+      envSound: null,
       foePlayer: null,
       combatEffect: null,
     }
@@ -40,6 +41,7 @@ export default {
     BattleEvent.$on('battle:started', ({ avatar }) => {
       this.mode = 'battle'
       this.foePlayer.setAttribute('visible', true)
+      this.envSound.setAttribute('src', '#theme002')
       if (avatar.weapon) {
         this.foePlayer.setAttribute('wep', `#${avatar.weapon.asset_name}`)
       } else {
@@ -61,8 +63,10 @@ export default {
     BattleEvent.$on('battle:ended', () => {
       this.mode = 'search'
       this.foePlayer.setAttribute('visible', false)
+      this.envSound.setAttribute('src', '#theme001')
     })
 
+    this.envSound = document.getElementById('envSound')
     this.foePlayer = document.querySelector('a-player')
     this.combatEffect = document.getElementById('combatVFX')
   },
