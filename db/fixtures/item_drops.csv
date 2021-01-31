@@ -1,81 +1,81 @@
 id,category,item_id,weight
-1,person,9,50
-2,bicycle,10,75
-3,car,8,75
-4,motorcycle,8,90
-5,airplane,9,80
-6,bus,10,85
-7,train,9,80
-8,truck,8,85
-9,boat,10,90
-10,traffic light,10,90
-11,fire hydrant,8,80
-12,stop sign,9,75
-13,parking meter,10,85
-14,bench,9,75
-15,bird,8,80
-16,cat,8,75
-17,dog,10,75
-18,horse,9,95
-19,sheep,9,75
-20,cow,8,95
-21,elephant,10,75
-22,bear,8,90
-23,zebra,10,90
-24,giraffe,10,85
-25,backpack,9,75
-26,umbrella,8,95
-27,handbag,10,85
-28,tie,8,75
-29,suitcase,9,95
-30,frisbee,9,75
-31,skis,9,75
-32,snowboard,10,80
-33,sports ball,8,75
-34,kite,8,75
-35,baseball bat,10,95
-36,baseball glove,9,95
-37,skateboard,10,80
-38,surfboard,9,95
-39,tennis racket,8,75
-40,bottle,8,85
-41,wine glass,9,75
-42,cup,8,95
-43,fork,8,90
-44,knife,9,85
-45,spoon,10,75
-46,bowl,9,85
-47,banana,9,90
-48,apple,10,85
-49,sandwich,9,90
-50,orange,9,75
-51,broccoli,10,75
-52,carrot,8,75
-53,hot dog,8,75
-54,pizza,10,75
-55,donut,9,80
-56,cake,10,80
-57,chair,10,95
-58,couch,9,70
-59,potted plant,8,75
-60,bed,9,90
-61,dining table,10,75
-62,toilet,9,75
-63,tv,8,85
-64,laptop,8,75
-65,mouse,9,80
-66,remote,8,85
-67,keyboard,8,75
-68,cell phone,10,60
-69,microwave,8,75
-70,oven,9,75
-71,toaster,10,90
-72,sink,9,75
-73,refrigerator,8,75
-74,book,9,85
-75,clock,10,95
-76,vase,8,80
-77,scissors,8,80
-78,teddy bear,10,90
-79,hair drier,10,95
-80,toothbrush,10,75
+1,person,1,60
+2,bicycle,2,30
+3,car,3,10
+4,motorcycle,1,60
+5,airplane,2,30
+6,bus,3,10
+7,train,8,30
+8,truck,9,20
+9,boat,10,10
+10,traffic light,4,30
+11,fire hydrant,4,30
+12,stop sign,4,30
+13,parking meter,4,30
+14,bench,4,30
+15,bird,4,30
+16,cat,1,60
+17,dog,2,30
+18,horse,3,10
+19,sheep,1,60
+20,cow,2,30
+21,elephant,3,10
+22,bear,8,30
+23,zebra,9,20
+24,giraffe,10,10
+25,backpack,4,30
+26,umbrella,4,30
+27,handbag,4,30
+28,tie,4,30
+29,suitcase,4,30
+30,frisbee,4,30
+31,skis,1,60
+32,snowboard,2,30
+33,sports ball,3,10
+34,kite,1,60
+35,baseball bat,2,30
+36,baseball glove,3,10
+37,skateboard,8,30
+38,surfboard,9,20
+39,tennis racket,10,10
+40,bottle,4,30
+41,wine glass,4,30
+42,cup,4,30
+43,fork,4,30
+44,knife,4,30
+45,spoon,4,30
+46,bowl,1,60
+47,banana,2,30
+48,apple,3,10
+49,sandwich,1,60
+50,orange,2,30
+51,broccoli,3,10
+52,carrot,8,30
+53,hot dog,9,20
+54,pizza,10,10
+55,donut,4,30
+56,cake,4,30
+57,chair,4,30
+58,couch,4,30
+59,potted plant,4,30
+60,bed,4,30
+61,dining table,1,60
+62,toilet,2,30
+63,tv,3,10
+64,laptop,1,60
+65,mouse,2,30
+66,remote,3,10
+67,keyboard,8,30
+68,cell phone,9,20
+69,microwave,10,10
+70,oven,4,30
+71,toaster,4,30
+72,sink,4,30
+73,refrigerator,4,30
+74,book,4,30
+75,clock,4,30
+76,vase,1,60
+77,scissors,2,30
+78,teddy bear,3,10
+79,hair drier,1,60
+80,toothbrush,2,30
