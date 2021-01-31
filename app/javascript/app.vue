@@ -31,6 +31,7 @@ export default {
       avatar: null,
       mode: 'search',
       envSound: null,
+      sfx: null,
       foePlayer: null,
       combatEffect: null,
     }
@@ -57,6 +58,8 @@ export default {
 
     BattleEvent.$on('damage:apply', () => {
       this.combatEffect.setAttribute('visible', true)
+      this.sfx.setAttribute('src', '#sword_swash_004')
+      this.sfx.components.sound.playSound()
       setTimeout(() => this.combatEffect.setAttribute('visible', false), 100)
     })
 
@@ -67,6 +70,7 @@ export default {
     })
 
     this.envSound = document.getElementById('envSound')
+    this.sfx = document.getElementById('sfx')
     this.foePlayer = document.querySelector('a-player')
     this.combatEffect = document.getElementById('combatVFX')
   },
