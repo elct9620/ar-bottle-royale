@@ -10,6 +10,7 @@ consumer.subscriptions.create("PlayerChannel", {
   },
 
   disconnected() {
+    PlayerEvent.$off('do:use_item')
     // Called when the subscription has been terminated by the server
   },
   received({ action, payload }) {

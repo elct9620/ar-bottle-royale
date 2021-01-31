@@ -4,7 +4,7 @@ class NearbyPlayerRefreshService
   attr_reader :avatar
 
   def initialize(avatar)
-    @avatar = avatar
+    @avatar = avatar.reload
   end
 
   def perform

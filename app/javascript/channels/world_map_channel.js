@@ -16,6 +16,8 @@ consumer.subscriptions.create("WorldMapChannel", {
   },
 
   disconnected() {
+    PlayerEvent.$off('attack:player')
+    MapEvent.$off('do:collect')
     // Called when the subscription has been terminated by the server
   },
 
