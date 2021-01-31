@@ -11,7 +11,9 @@
   >
 
   <a-assets>
+    <!-- Image -->
     <img id="combat" src="/models/combat_impact.png"></img>
+    <!-- Model -->
     <a-asset-item id="ggj_prp_wep_001" src="/models/weapon/ggj_prp_wep_001.gltf"></a-asset-item>
     <a-asset-item id="ggj_prp_wep_002" src="/models/weapon/ggj_prp_wep_002.gltf"></a-asset-item>
     <a-asset-item id="ggj_prp_wep_003" src="/models/weapon/ggj_prp_wep_003.gltf"></a-asset-item>
@@ -19,12 +21,15 @@
     <a-asset-item id="ggj_prp_armor_002" src="/models/armor/ggj_prp_armor_002.gltf"></a-asset-item>
     <a-asset-item id="ggj_prp_armor_003" src="/models/armor/ggj_prp_armor_003.gltf"></a-asset-item>
     <a-asset-item id="char001" src="/models/other/ggj_prp_char_001.gltf"></a-asset-item>
+    <!-- Audio -->
+    <audio id="theme001" src="/sounds/theme_001.mp3"></audio>
   </a-assets>
 
+  <!-- Environment -->
   <a-light type="ambient" color="#FFFFFF"></a-light>
+  <a-sound autoplay="true" loop="true" src="#theme001"></a-sound>
 
   <!-- other player -->
-
   <a-player visible="false">
     <a-image id="combatVFX" visible="false" src="#combat" scale="5 5 1" position="0 10 5"></a-image>
   </a-player>
